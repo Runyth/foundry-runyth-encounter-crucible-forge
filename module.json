@@ -1,0 +1,60 @@
+{
+  "id": "encounter-crucible-forge",
+  "title": "Encounter Crucible: Forge",
+  "description": "Sidebar encounter generator with a scalable hierarchical Actor-folder picker, resilient Helper API 2.x facade detection, explicit composition strategies, reusable Journals, and persistent window geometry.",
+  "version": "1.9.6",
+  "authors": [
+    {
+      "name": "Runyth",
+      "url": "https://github.com/Runyth"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/forge.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "encounter-crucible",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.8.1"
+        }
+      }
+    ],
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.2.0"
+        }
+      }
+    ]
+  },
+  "license": "LICENSE",
+  "readme": "README.md",
+  "changelog": "CHANGELOG.md",
+  "url": "https://github.com/Runyth/foundry-encounter-crucible-forge",
+  "manifest": "https://github.com/Runyth/foundry-encounter-crucible-forge/releases/latest/download/module.json",
+  "download": "https://github.com/Runyth/foundry-encounter-crucible-forge/releases/download/v1.9.6/encounter-crucible-forge-v1.9.6-mod.zip"
+}

@@ -1,0 +1,230 @@
+<section class="eccf-shell eccf-scroll">
+  {{#unless apiAvailable}}
+    <div class="eccf-callout eccf-error">{{localize "ECCF.Errors.ApiUnavailable"}}</div>
+  {{/unless}}
+
+  <header class="eccf-header">
+    <div>
+      <h1>{{localize "ECCF.Title"}}</h1>
+      <p>{{localize "ECCF.Subtitle"}}</p>
+    </div>
+    <i class="fa-solid fa-hammer"></i>
+  </header>
+
+  <fieldset class="eccf-saved" {{#unless apiAvailable}}disabled{{/unless}}>
+    <legend>{{localize "ECCF.Saved.Title"}}</legend>
+    {{#if hasSavedEncounters}}
+      <div class="form-group">
+        <label>{{localize "ECCF.Saved.Select"}}</label>
+        <select name="savedEncounterId">
+          <option value="">{{localize "ECCF.Saved.SelectPlaceholder"}}</option>
+          {{#each savedEncounters}}
+            <option value="{{id}}">{{name}} — {{folder}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <label class="eccf-check"><input type="checkbox" name="useCurrentParty" checked> <span><strong>{{localize "ECCF.Saved.UseCurrentParty"}}</strong><small>{{localize "ECCF.Saved.UseCurrentPartyHint"}}</small></span></label>
+      <button type="button" data-action="loadSavedEncounter"><i class="fa-solid fa-folder-open"></i> {{localize "ECCF.Actions.LoadSaved"}}</button>
+    {{else}}
+      <p class="eccf-muted">{{localize "ECCF.Saved.Empty"}}</p>
+    {{/if}}
+  </fieldset>
+
+  <fieldset {{#unless apiAvailable}}disabled{{/unless}}>
+    <legend>{{localize "ECCF.Source.Title"}}</legend>
+    <div class="form-group stacked eccf-folder-source">
+      <label>{{localize "ECCF.Source.Folder"}}</label>
+      <input type="hidden" name="folderId" value="{{selectedFolder}}">
+      <div class="eccf-folder-picker" data-folder-picker>
+        <div class="eccf-folder-selection">
+          <span>
+            <small>{{localize "ECCF.Source.SelectedFolder"}}</small>
+            <strong>{{selectedFolderLabel}}</strong>
+            {{#if selectedFolderExists}}<small>{{localize "ECCF.Source.ActorCount" count=selectedFolderActorCount}}</small>{{/if}}
+          </span>
+          <button type="button" data-folder-clear {{#unless selectedFolder}}disabled{{/unless}} title="{{localize 'ECCF.Source.ClearFolderHint'}}">
+            <i class="fa-solid fa-xmark"></i> {{localize "ECCF.Source.ClearFolder"}}
+          </button>
+        </div>
+        {{#if hasFolders}}
+          <div class="eccf-folder-controls">
+            <label class="eccf-folder-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" data-folder-search value="{{folderSearchQuery}}" placeholder="{{localize 'ECCF.Source.SearchFolders'}}" autocomplete="off">
+            </label>
+            <span class="eccf-folder-tree-actions">
+              <button type="button" data-folder-expand-all title="{{localize 'ECCF.Source.ExpandAllHint'}}"><i class="fa-solid fa-angles-down"></i> {{localize "ECCF.Source.ExpandAll"}}</button>
+              <button type="button" data-folder-collapse-all title="{{localize 'ECCF.Source.CollapseAllHint'}}"><i class="fa-solid fa-angles-up"></i> {{localize "ECCF.Source.CollapseAll"}}</button>
+            </span>
+          </div>
+          <div class="eccf-folder-tree" role="tree" aria-label="{{localize 'ECCF.Source.FolderTreeLabel'}}">
+            {{#each folders}}
+              <div class="eccf-folder-row {{#if selected}}selected{{/if}}"
+                   data-folder-row
+                   data-folder-id="{{id}}"
+                   data-folder-ancestor-ids="{{ancestorIdsValue}}"
+                   data-folder-search-value="{{searchValue}}"
+                   role="treeitem"
+                   aria-level="{{ariaLevel}}"
+                   aria-selected="{{#if selected}}true{{else}}false{{/if}}"
+                   style="--eccf-folder-depth: {{depth}};">
+                {{#if hasChildren}}
+                  <button type="button" class="eccf-folder-toggle" data-folder-toggle="{{id}}" aria-expanded="true" title="{{localize 'ECCF.Source.ToggleFolder'}}">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </button>
+                {{else}}
+                  <span class="eccf-folder-toggle-spacer" aria-hidden="true"></span>
+                {{/if}}
+                <button type="button" class="eccf-folder-select" data-folder-select="{{id}}" title="{{path}}">
+                  <i class="fa-solid {{#if selected}}fa-folder-open{{else}}fa-folder{{/if}}"></i>
+                  <span class="eccf-folder-text">
+                    <strong>{{name}}</strong>
+                    <small>{{path}}</small>
+                  </span>
+                  <span class="eccf-folder-count" title="{{localize 'ECCF.Source.ActorCountsHint'}}">{{directActorCount}} / {{recursiveActorCount}}</span>
+                </button>
+              </div>
+            {{/each}}
+          </div>
+          <small class="eccf-folder-help">{{localize "ECCF.Source.FolderPickerHint" count=folderCount}}</small>
+        {{else}}
+          <p class="eccf-callout eccf-warning"><i class="fa-solid fa-folder-minus"></i> {{localize "ECCF.Source.NoActorFolders"}}</p>
+        {{/if}}
+      </div>
+    </div>
+    <label class="eccf-check"><input type="checkbox" name="recursive" {{#if recursive}}checked{{/if}}> {{localize "ECCF.Source.Recursive"}}</label>
+    <div class="form-group">
+      <label>{{localize "ECCF.Source.Party"}}</label>
+      <select name="partySource">
+        <option value="combat" {{#if partySources.combat}}selected{{/if}}>{{localize "ECCF.Source.ActiveCombat"}}</option>
+        <option value="selection" {{#if partySources.selection}}selected{{/if}}>{{localize "ECCF.Source.SelectedTokens"}}</option>
+        <option value="players" {{#if partySources.players}}selected{{/if}}>{{localize "ECCF.Source.PlayerCharacters"}}</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset {{#unless apiAvailable}}disabled{{/unless}}>
+    <legend>{{localize "ECCF.Difficulty.Title"}}</legend>
+    <div class="eccf-slider-labels"><span>{{localize "ECCF.Difficulty.trivial"}}</span><strong data-target-label>{{targetBand}}</strong><span>{{localize "ECCF.Difficulty.extreme"}}</span></div>
+    <input class="eccf-slider" type="range" name="target" min="0" max="100" step="1" value="{{target}}">
+  </fieldset>
+
+  <fieldset class="eccf-strategies" {{#unless apiAvailable}}disabled{{/unless}}>
+    <legend>{{localize "ECCF.Strategy.Title"}}</legend>
+    <label class="eccf-check"><input type="checkbox" name="preferQuantity" {{#if options.preferQuantity}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.Quantity"}}</strong><small>{{localize "ECCF.Strategy.QuantityHint"}}</small></span></label>
+    <label class="eccf-check"><input type="checkbox" name="preferStrength" {{#if options.preferStrength}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.Strength"}}</strong><small>{{localize "ECCF.Strategy.StrengthHint"}}</small></span></label>
+    <aside class="eccf-strategy-summary">
+      <i class="fa-solid fa-code-branch"></i>
+      <span>
+        <strong data-strategy-mode-label>{{strategy.label}}</strong>
+        <small data-strategy-mode-hint>{{strategy.hint}}</small>
+      </span>
+    </aside>
+    <label class="eccf-check"><input type="checkbox" name="fixedGroupSize" {{#if options.fixedGroupSize}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.FixedSize"}}</strong><small>{{localize "ECCF.Strategy.FixedSizeHint"}}</small></span></label>
+    <div class="eccf-number-grid">
+      <label>{{localize "ECCF.Strategy.DesiredSize"}} <input type="number" name="desiredGroupSize" min="1" max="20" value="{{options.desiredGroupSize}}"></label>
+      <label>{{localize "ECCF.Strategy.MaximumSize"}} <input type="number" name="maxEnemies" min="1" max="30" value="{{options.maxEnemies}}"></label>
+    </div>
+    <label class="eccf-check"><input type="checkbox" name="allowDuplicates" {{#if options.allowDuplicates}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.Duplicates"}}</strong><small>{{localize "ECCF.Strategy.DuplicatesHint"}}</small></span></label>
+    <label class="eccf-check"><input type="checkbox" name="preferSameCr" {{#if options.preferSameCr}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.SameCr"}}</strong><small>{{localize "ECCF.Strategy.SameCrHint"}}</small></span></label>
+    <label class="eccf-check"><input type="checkbox" name="preferDiversity" {{#if options.preferDiversity}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.Diversity"}}</strong><small>{{localize "ECCF.Strategy.DiversityHint"}}</small></span></label>
+    <label class="eccf-check"><input type="checkbox" name="bossEncounter" {{#if options.bossEncounter}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.BossEncounter"}}</strong><small>{{localize "ECCF.Strategy.BossEncounterHint"}}</small></span></label>
+    <label class="eccf-check"><input type="checkbox" name="includeBoss" {{#if options.includeBoss}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.Boss"}}</strong><small>{{localize "ECCF.Strategy.BossHint"}}</small></span></label>
+    <aside class="eccf-safety-note"><i class="fa-solid fa-shield-halved"></i> {{localize "ECCF.Strategy.BossSafetyHint"}}</aside>
+    <label class="eccf-check"><input type="checkbox" name="includeMinions" {{#if options.includeMinions}}checked{{/if}}> <span><strong>{{localize "ECCF.Strategy.Minions"}}</strong><small>{{localize "ECCF.Strategy.MinionsHint"}}</small></span></label>
+  </fieldset>
+
+  <fieldset class="eccf-preferences" {{#unless apiAvailable}}disabled{{/unless}}>
+    <legend>{{localize "ECCF.Preferences.Title"}}</legend>
+    <small class="eccf-global-filter-hint"><i class="fa-solid fa-filter"></i> {{localize "ECCF.Preferences.GlobalFilterHint"}}</small>
+    <div class="form-group stacked">
+      <label>{{localize "ECCF.Preferences.Races"}}</label>
+      <select name="preferredRaces" multiple size="6">
+        {{#each raceOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>{{/each}}
+      </select>
+      <small>{{localize "ECCF.Preferences.MultiSelectHint"}}</small>
+    </div>
+    <label class="eccf-check"><input type="checkbox" name="strictRaces" {{#if options.strictRaces}}checked{{/if}}> <span><strong>{{localize "ECCF.Preferences.StrictRaces"}}</strong><small>{{localize "ECCF.Preferences.StrictRacesHint"}}</small></span></label>
+    <div class="form-group stacked">
+      <label>{{localize "ECCF.Preferences.Archetypes"}}</label>
+      <select name="preferredArchetypes" multiple size="8">
+        {{#each archetypeOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>{{/each}}
+      </select>
+      <small>{{localize "ECCF.Preferences.ArchetypeHint"}}</small>
+    </div>
+    <label class="eccf-check"><input type="checkbox" name="strictArchetypes" {{#if options.strictArchetypes}}checked{{/if}}> <span><strong>{{localize "ECCF.Preferences.StrictArchetypes"}}</strong><small>{{localize "ECCF.Preferences.StrictArchetypesHint"}}</small></span></label>
+  </fieldset>
+
+  <button type="button" class="eccf-primary" data-action="generate" {{#if busy}}disabled{{/if}}>
+    <i class="fa-solid {{#if busy}}fa-spinner fa-spin{{else}}fa-wand-magic-sparkles{{/if}}"></i>
+    {{#if busy}}{{localize "ECCF.Actions.Generating"}}{{else}}{{localize "ECCF.Actions.Generate"}}{{/if}}
+  </button>
+
+  {{#if hasResult}}
+    <section class="eccf-result">
+      <header>
+        <div>
+          <span class="eccf-eyebrow">{{localize "ECCF.Result.Suggestion"}}</span>
+          <h2>{{encounter.name}}</h2>
+        </div>
+        <div class="eccf-rating"><strong>{{assessment.overallLabel}}</strong><small>{{localize "ECCF.Result.Score"}} {{assessment.scoreDisplay}}</small></div>
+      </header>
+      {{#if assessment.safety.overmatched}}
+        <p class="eccf-warning"><i class="fa-solid fa-skull-crossbones"></i> {{localize "ECCF.Result.OvermatchedWarning"}}</p>
+      {{/if}}
+      <div class="eccf-roster">
+        {{#each encounter.enemies}}
+          <article><img src="{{img}}"><div><strong>{{name}}</strong><small>CR {{cr}} · XP {{xp}}</small></div><b>×{{quantity}}</b></article>
+        {{/each}}
+      </div>
+      {{#if alternatives.length}}
+        <div class="eccf-alternatives">
+          <span>{{localize "ECCF.Result.Alternatives"}}</span>
+          {{#each alternatives}}<button type="button" data-action="chooseAlternative" data-index="{{index}}" class="{{#if selected}}active{{/if}}">{{label}} · {{count}}</button>{{/each}}
+        </div>
+      {{/if}}
+      <details>
+        <summary>{{localize "ECCF.Result.Diagnostics"}}</summary>
+        <dl>
+          <dt>{{localize "ECCF.Result.TargetBand"}}</dt><dd>{{diagnostics.targetBandLabel}}</dd>
+          <dt>{{localize "ECCF.Result.ActualBand"}}</dt><dd>{{diagnostics.actualBandLabel}}</dd>
+          <dt>{{localize "ECCF.Result.TargetScore"}}</dt><dd>{{diagnostics.targetScore}}</dd>
+          <dt>{{localize "ECCF.Result.ActualScore"}}</dt><dd>{{diagnostics.actualScore}}</dd>
+          <dt>{{localize "ECCF.Result.StrategyMode"}}</dt><dd>{{diagnostics.strategyModeLabel}}</dd>
+          <dt>{{localize "ECCF.Result.TargetEnemyCount"}}</dt><dd>{{diagnostics.targetEnemyCount}}</dd>
+          <dt>{{localize "ECCF.Result.EnemyCount"}}</dt><dd>{{diagnostics.enemyCount}}</dd>
+          <dt>{{localize "ECCF.Result.UniqueActors"}}</dt><dd>{{diagnostics.uniqueActors}}</dd>
+          <dt>{{localize "ECCF.Result.AverageCr"}}</dt><dd>{{diagnostics.averageCr}}</dd>
+          <dt>{{localize "ECCF.Result.HighestCr"}}</dt><dd>{{diagnostics.highestCr}}</dd>
+          <dt>{{localize "ECCF.Result.TargetRawXp"}}</dt><dd>{{diagnostics.targetRawXpDisplay}}</dd>
+          <dt>{{localize "ECCF.Result.ActualRawXp"}}</dt><dd>{{diagnostics.rawEnemyXpDisplay}}</dd>
+          <dt>{{localize "ECCF.Result.TargetAdjustedXp"}}</dt><dd>{{diagnostics.targetAdjustedXp2014Display}}</dd>
+          <dt>{{localize "ECCF.Result.ActualAdjustedXp"}}</dt><dd>{{diagnostics.adjustedXp2014Display}}</dd>
+          <dt>{{localize "ECCF.Result.TargetFit"}}</dt><dd>{{diagnostics.targetRatioDisplay}} · {{diagnostics.fitStatusLabel}}</dd>
+          <dt>{{localize "ECCF.Result.FilteredCandidates"}}</dt><dd>{{diagnostics.candidateCountAfterFilters}}</dd>
+          <dt>{{localize "ECCF.Result.PlainRaceCandidates"}}</dt><dd>{{diagnostics.plainPreferredRaceCandidateCount}}</dd>
+          <dt>{{localize "ECCF.Result.QualifiedRaceCandidates"}}</dt><dd>{{diagnostics.qualifiedPreferredRaceCandidateCount}}</dd>
+          <dt>{{localize "ECCF.Result.QualifiedRaceExcluded"}}</dt><dd>{{diagnostics.qualifiedRaceExcludedCount}}</dd>
+          <dt>{{localize "ECCF.Result.CorrectedXp"}}</dt><dd>{{diagnostics.correctedXpCount}}</dd>
+        </dl>
+        <p class="eccf-generation-note"><i class="fa-solid fa-scale-unbalanced-flip"></i> {{localize "ECCF.Result.NoHardLimitHint"}}</p>
+        {{#if diagnostics.hasWarnings}}
+          {{#each diagnostics.warnings}}<p class="eccf-warning"><i class="fa-solid fa-triangle-exclamation"></i> {{this}}</p>{{/each}}
+        {{/if}}
+      </details>
+      <aside class="eccf-storage-note"><i class="fa-solid fa-book-journal-whills"></i> {{localize "ECCF.Storage.Explanation"}}<br><strong>{{localize "ECCF.Storage.ThemePreview"}}:</strong> {{themePreview}}</aside>
+      <div class="form-group eccf-save-name">
+        <label>{{localize "ECCF.Storage.CustomName"}}</label>
+        <input type="text" name="saveName" value="{{saveName}}" placeholder="{{localize 'ECCF.Storage.CustomNamePlaceholder'}}">
+        <small>{{localize "ECCF.Storage.CustomNameHint"}}</small>
+        <small><strong>{{localize "ECCF.Storage.NamePreview"}}:</strong> {{namePreview}}</small>
+      </div>
+      <label class="eccf-check eccf-combat-option"><input type="checkbox" name="addToCombat"> <span><strong>{{localize "ECCF.Actions.AddToCombat"}}</strong><small>{{localize "ECCF.Actions.AddToCombatHint"}}</small></span></label>
+      <footer>
+        <button type="button" class="eccf-place" data-action="placeOnScene"><i class="fa-solid fa-location-crosshairs"></i> {{localize "ECCF.Actions.Place"}}</button>
+        <button type="button" data-action="openInCrucible"><i class="fa-solid fa-scale-balanced"></i> {{localize "ECCF.Actions.Open"}}</button>
+        <button type="button" data-action="saveEncounter" title="{{storage.description}}"><i class="fa-solid fa-floppy-disk"></i> {{localize "ECCF.Actions.Save"}}</button>
+      </footer>
+    </section>
+  {{/if}}
+</section>

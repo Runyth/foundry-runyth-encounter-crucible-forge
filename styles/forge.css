@@ -1,0 +1,311 @@
+.encounter-crucible-forge { --eccf-gap: .75rem; }
+.encounter-crucible-forge .window-content { padding: 0; }
+.eccf-shell { padding: 1rem; display: grid; gap: var(--eccf-gap); overflow: auto; }
+.eccf-header, .eccf-result header, .eccf-result footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.eccf-header h1, .eccf-result h2 { margin: 0; }
+.eccf-header p { margin: .25rem 0 0; opacity: .75; }
+.eccf-header > i { font-size: 2rem; opacity: .55; }
+.eccf-shell fieldset { border: 1px solid var(--color-border-light-2); border-radius: 6px; padding: .75rem; display: grid; gap: .6rem; }
+.eccf-shell legend { font-weight: 700; padding: 0 .35rem; }
+.eccf-check { display: flex; align-items: flex-start; gap: .55rem; }
+.eccf-check input { margin-top: .2rem; }
+.eccf-check span { display: grid; }
+.eccf-check small { opacity: .7; line-height: 1.25; }
+.eccf-number-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.eccf-number-grid label { display: grid; gap: .25rem; }
+.eccf-slider-labels { display: flex; justify-content: space-between; align-items: baseline; }
+.eccf-slider { width: 100%; }
+.eccf-primary { min-height: 2.5rem; font-weight: 700; }
+.eccf-result { border: 1px solid var(--color-border-highlight); border-radius: 7px; padding: .85rem; display: grid; gap: .75rem; }
+.eccf-eyebrow { text-transform: uppercase; font-size: .7rem; letter-spacing: .08em; opacity: .65; }
+.eccf-rating { text-align: right; display: grid; }
+.eccf-rating strong { font-size: 1.15rem; }
+.eccf-roster { display: grid; gap: .4rem; }
+.eccf-roster article { display: grid; grid-template-columns: 42px 1fr auto; gap: .6rem; align-items: center; padding: .4rem; background: rgb(0 0 0 / 8%); border-radius: 5px; }
+.eccf-roster img { width: 42px; height: 42px; object-fit: cover; border: 0; border-radius: 4px; }
+.eccf-roster article div { display: grid; }
+.eccf-roster small { opacity: .7; }
+.eccf-roster b { font-size: 1.1rem; }
+.eccf-alternatives { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.eccf-alternatives button.active { outline: 2px solid var(--color-border-highlight); }
+.eccf-result dl { display: grid; grid-template-columns: 1fr auto; gap: .25rem .75rem; }
+.eccf-result dt, .eccf-result dd { margin: 0; }
+.eccf-callout { padding: .7rem; border-radius: 5px; }
+.eccf-error { background: rgb(140 0 0 / 20%); }
+@media (max-width: 620px) { .eccf-number-grid { grid-template-columns: 1fr; } }
+
+.eccf-preferences .stacked { display: grid; gap: 0.35rem; }
+.eccf-preferences select[multiple] { min-height: 7rem; width: 100%; }
+.eccf-storage-note, .ec-storage-note { margin: 0.65rem 0; padding: 0.65rem 0.8rem; border: 1px solid var(--color-border-light-2); border-radius: 6px; background: rgba(0,0,0,0.08); font-size: 0.9rem; }
+.eccf-result footer { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.eccf-result footer .eccf-place { font-weight: 700; }
+.eccf-combat-option { margin-top: 0.5rem; }
+
+.eccf-sidebar-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  flex: 0 0 auto;
+  inline-size: auto !important;
+  min-inline-size: max-content !important;
+  block-size: 1.8rem;
+  min-block-size: 1.8rem;
+  padding: 0 .55rem !important;
+  margin: 0 .25rem;
+  white-space: nowrap;
+  line-height: 1;
+}
+.eccf-sidebar-button span { display: inline-block; }
+.eccf-saved { background: rgb(0 0 0 / 4%); }
+.eccf-saved button { width: 100%; min-height: 2.2rem; }
+.eccf-muted { margin: 0; opacity: .7; }
+.eccf-safety-note { padding: .55rem .65rem; border-left: 3px solid var(--color-border-highlight); background: rgb(0 0 0 / 6%); font-size: .9rem; line-height: 1.3; }
+.eccf-warning { margin: .6rem 0 0; padding: .5rem .65rem; border-radius: 4px; background: rgb(160 90 0 / 16%); }
+.eccf-save-name { margin-top: 0.65rem; }
+.eccf-save-name input { width: 100%; }
+
+.eccf-global-filter-hint { display: block; opacity: .75; line-height: 1.3; }
+.eccf-global-filter-hint i { margin-right: .25rem; }
+
+.eccf-reset-window-content { display: grid; gap: .75rem; padding: .75rem; }
+.eccf-reset-window-content p { margin: 0; }
+.eccf-reset-window-content footer { display: flex; justify-content: flex-end; gap: .5rem; }
+
+.encounter-crucible-forge .eccf-generation-note {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.65rem;
+  border-inline-start: 3px solid var(--color-border-light-primary, #777);
+  opacity: 0.9;
+}
+
+.encounter-crucible-forge .eccf-strategy-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0.35rem 0 0.6rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--color-border-light-tertiary, #777);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--color-bg-option, #202020) 82%, transparent);
+}
+
+.encounter-crucible-forge .eccf-strategy-summary > i {
+  margin-top: 0.15rem;
+}
+
+.encounter-crucible-forge .eccf-strategy-summary span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.encounter-crucible-forge .eccf-strategy-summary small {
+  line-height: 1.3;
+}
+
+/* Scalable Actor-folder selector. */
+.encounter-crucible-forge .eccf-folder-source {
+  min-width: 0;
+}
+
+.encounter-crucible-forge .eccf-folder-picker {
+  display: grid;
+  gap: .5rem;
+  min-width: 0;
+}
+
+.encounter-crucible-forge .eccf-folder-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .55rem .65rem;
+  border: 1px solid var(--color-border-light-2);
+  border-radius: 6px;
+  background: rgb(0 0 0 / 6%);
+}
+
+.encounter-crucible-forge .eccf-folder-selection > span {
+  display: grid;
+  min-width: 0;
+}
+
+.encounter-crucible-forge .eccf-folder-selection strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.encounter-crucible-forge .eccf-folder-selection small,
+.encounter-crucible-forge .eccf-folder-help {
+  opacity: .72;
+}
+
+.encounter-crucible-forge .eccf-folder-selection button,
+.encounter-crucible-forge .eccf-folder-tree-actions button,
+.encounter-crucible-forge .eccf-folder-toggle,
+.encounter-crucible-forge .eccf-folder-select {
+  width: auto;
+  min-width: 0;
+}
+
+.encounter-crucible-forge .eccf-folder-controls {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-width: 0;
+}
+
+.encounter-crucible-forge .eccf-folder-search {
+  position: relative;
+  flex: 1 1 16rem;
+  min-width: 8rem;
+}
+
+.encounter-crucible-forge .eccf-folder-search > i {
+  position: absolute;
+  inset-inline-start: .6rem;
+  top: 50%;
+  translate: 0 -50%;
+  pointer-events: none;
+  opacity: .65;
+}
+
+.encounter-crucible-forge .eccf-folder-search input {
+  width: 100%;
+  padding-inline-start: 1.8rem;
+}
+
+.encounter-crucible-forge .eccf-folder-tree-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: .3rem;
+}
+
+.encounter-crucible-forge .eccf-folder-tree-actions button {
+  min-height: 2rem;
+  padding-inline: .5rem;
+  white-space: nowrap;
+}
+
+.encounter-crucible-forge .eccf-folder-tree {
+  display: grid;
+  align-content: start;
+  max-height: clamp(12rem, 34vh, 24rem);
+  min-height: 8rem;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  border: 1px solid var(--color-border-light-2);
+  border-radius: 6px;
+  background: rgb(0 0 0 / 4%);
+}
+
+.encounter-crucible-forge .eccf-folder-row {
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  align-items: stretch;
+  min-width: 0;
+  padding-inline-start: calc(var(--eccf-folder-depth, 0) * 1rem);
+  border-bottom: 1px solid rgb(127 127 127 / 14%);
+}
+
+.encounter-crucible-forge .eccf-folder-row:last-child {
+  border-bottom: 0;
+}
+
+.encounter-crucible-forge .eccf-folder-row[hidden] {
+  display: none !important;
+}
+
+.encounter-crucible-forge .eccf-folder-row.selected {
+  background: color-mix(in srgb, var(--color-bg-option, #202020) 74%, var(--color-border-highlight) 26%);
+}
+
+.encounter-crucible-forge .eccf-folder-row.eccf-folder-search-match:not(.selected) {
+  background: rgb(127 127 127 / 10%);
+}
+
+.encounter-crucible-forge .eccf-folder-toggle,
+.encounter-crucible-forge .eccf-folder-toggle-spacer {
+  align-self: center;
+  justify-self: center;
+  inline-size: 1.55rem;
+  block-size: 1.55rem;
+  margin: 0;
+  padding: 0;
+}
+
+.encounter-crucible-forge .eccf-folder-toggle {
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.encounter-crucible-forge .eccf-folder-toggle:hover,
+.encounter-crucible-forge .eccf-folder-toggle:focus-visible {
+  background: rgb(127 127 127 / 14%);
+}
+
+.encounter-crucible-forge .eccf-folder-select {
+  display: grid;
+  grid-template-columns: 1.35rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .4rem;
+  min-height: 2.55rem;
+  margin: 0;
+  padding: .3rem .5rem .3rem .25rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: start;
+}
+
+.encounter-crucible-forge .eccf-folder-select:hover,
+.encounter-crucible-forge .eccf-folder-select:focus-visible {
+  background: rgb(127 127 127 / 12%);
+}
+
+.encounter-crucible-forge .eccf-folder-text {
+  display: grid;
+  min-width: 0;
+  line-height: 1.15;
+}
+
+.encounter-crucible-forge .eccf-folder-text strong,
+.encounter-crucible-forge .eccf-folder-text small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.encounter-crucible-forge .eccf-folder-text small {
+  opacity: .62;
+  font-size: .75em;
+}
+
+.encounter-crucible-forge .eccf-folder-count {
+  min-width: 3.2rem;
+  padding: .12rem .35rem;
+  border-radius: 999px;
+  background: rgb(127 127 127 / 14%);
+  font-size: .72rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .encounter-crucible-forge .eccf-folder-controls,
+  .encounter-crucible-forge .eccf-folder-selection {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .encounter-crucible-forge .eccf-folder-tree-actions {
+    flex-wrap: wrap;
+  }
+}
