@@ -1,13 +1,13 @@
 # Race and archetype vocabulary controls
 
-Forge builds its race/creature-kind and class/type/archetype/theme lists from Actor metadata normalized by Encounter Crucible. D&D5e metadata is not always presentation-ready: an Actor may expose `Human, Shapechanger`, `Humanoid (Shapechanger)`, full-width punctuation, HTML-encoded commas, or nested type/subtype objects.
+Forge builds its race/creature-kind and class/type/archetype/theme lists from Actor metadata normalized by Runyth Encounter Crucible. D&D5e metadata is not always presentation-ready: an Actor may expose `Human, Shapechanger`, `Humanoid (Shapechanger)`, full-width punctuation, HTML-encoded commas, or nested type/subtype objects.
 
 All whitelist and blacklist controls are GM-only world settings under:
 
 ```text
 Configure Settings
 → Module Settings
-→ Encounter Crucible: Forge
+→ Runyth Encounter Crucible: Forge
 ```
 
 ## Mandatory canonical normalization

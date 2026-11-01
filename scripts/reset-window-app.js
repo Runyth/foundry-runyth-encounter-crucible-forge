@@ -7,8 +7,8 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class ResetWindowGeometryApp extends HandlebarsApplicationMixin(ApplicationV2) {
   static DEFAULT_OPTIONS = {
-    id: "encounter-crucible-forge-reset-window",
-    classes: ["encounter-crucible-forge", "eccf-reset-window"],
+    id: "runyth-encounter-crucible-forge-reset-window",
+    classes: ["runyth-encounter-crucible-forge", "eccf-reset-window"],
     window: {
       title: "ECCF.WindowGeometry.ResetTitle",
       icon: "fa-solid fa-window-restore",

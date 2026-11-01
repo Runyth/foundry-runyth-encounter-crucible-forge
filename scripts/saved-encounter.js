@@ -6,7 +6,7 @@ function clone(value) {
 }
 
 export function prepareLoadedEncounter(saved, currentParty = [], useCurrentParty = true) {
-  if (!saved) throw new TypeError("A saved Encounter Crucible definition is required.");
+  if (!saved) throw new TypeError("A saved Runyth Encounter Crucible definition is required.");
   const savedParticipants = clone(saved.participants ?? []);
   const party = useCurrentParty ? clone(currentParty ?? []) : savedParticipants.filter((participant) => participant.side === "party");
   if (useCurrentParty && !party.length) throw new Error("The selected party source contains no characters.");

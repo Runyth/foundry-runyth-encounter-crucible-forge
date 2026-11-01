@@ -19,7 +19,7 @@ const calls = [];
 const registration = new HelperRegistration();
 const firstApi = api("first", calls);
 const secondApi = api("second", calls);
-const descriptor = { id: "encounter-crucible-forge", title: "Forge" };
+const descriptor = { id: "runyth-encounter-crucible-forge", title: "Forge" };
 
 assert.equal(resolveHelperRegistrar(firstApi).source, "helpers.register");
 assert.equal(registration.registered, false);

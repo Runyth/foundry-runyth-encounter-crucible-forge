@@ -1,16 +1,16 @@
 # Actor-folder selector
 
-Encounter Crucible: Forge 1.9.6 uses Foundry's world Actor-folder collection as the source of truth for folder discovery.
+Runyth Encounter Crucible: Forge 1.9.6 uses Foundry's world Actor-folder collection as the source of truth for folder discovery.
 
 ## Why folder discovery is local to Forge
 
-Encounter Crucible owns Actor normalization and recursive Actor collection through its helper API. Folder enumeration is a Foundry UI/data concern and does not need to be duplicated by the core API. Earlier Forge releases called the optional `api.actors.listFolders()` helper; compatible core releases that omitted that convenience method could therefore leave the Enemy Actor folder list empty even though `collectFromFolder()` worked correctly.
+Runyth Encounter Crucible owns Actor normalization and recursive Actor collection through its helper API. Folder enumeration is a Foundry UI/data concern and does not need to be duplicated by the core API. Earlier Forge releases called the optional `api.actors.listFolders()` helper; compatible core releases that omitted that convenience method could therefore leave the Enemy Actor folder list empty even though `collectFromFolder()` worked correctly.
 
 Forge now separates the responsibilities:
 
 1. **Foundry** supplies world Actor folders through `game.actors.folders`.
 2. **Forge** presents those folders in a scalable hierarchical selector and stores the selected Folder id.
-3. **Encounter Crucible** receives that id and performs the actual direct or recursive Actor collection, normalization, generation, and assessment.
+3. **Runyth Encounter Crucible** receives that id and performs the actual direct or recursive Actor collection, normalization, generation, and assessment.
 
 A compatibility fallback can read Actor-type folders from `game.folders` when a minimal runtime or test wrapper does not provide the Actor collection accessor.
 

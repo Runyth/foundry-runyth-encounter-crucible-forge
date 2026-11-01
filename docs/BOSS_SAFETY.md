@@ -1,6 +1,6 @@
 # Difficulty, bosses, and overmatch
 
-Forge delegates encounter assessment and generation to Encounter Crucible Helper API 2.7.
+Forge delegates encounter assessment and generation to Runyth Encounter Crucible Helper API 2.7.
 
 ## Band-aware generation
 
@@ -14,7 +14,7 @@ There is no artificial maximum CR or XP. Extreme can deliberately include overwh
 
 ## CR and XP consistency
 
-Standard D&D XP is derived from CR. If an imported Actor says CR 10 but contains a low or otherwise incorrect XP value, Encounter Crucible uses the canonical CR 10 XP for calculations without modifying the Actor. Forge reports the number of corrected candidates in diagnostics.
+Standard D&D XP is derived from CR. If an imported Actor says CR 10 but contains a low or otherwise incorrect XP value, Runyth Encounter Crucible uses the canonical CR 10 XP for calculations without modifying the Actor. Forge reports the number of corrected candidates in diagnostics.
 
 ## Boss options
 

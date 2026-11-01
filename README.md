@@ -1,32 +1,32 @@
-# Encounter Crucible: Forge
+# Runyth Encounter Crucible: Forge
 
-Forge is an optional helper module for Encounter Crucible 1.8.1 or newer with Helper API 2.7.1 or a compatible later 2.x release.
+Forge is an optional helper module for Runyth Encounter Crucible 1.8.1 or newer with Helper API 2.7.1 or a compatible later 2.x release.
 
-It recursively reads NPC Actors from a configured Actor folder, extracts their CR and structured combat profile through Encounter Crucible's public API, resolves the current party, and searches for an encounter composition near a Trivial-to-Extreme slider target.
+It recursively reads NPC Actors from a configured Actor folder, extracts their CR and structured combat profile through Runyth Encounter Crucible's public API, resolves the current party, and searches for an encounter composition near a Trivial-to-Extreme slider target.
 
 ## Core startup compatibility
 
-Forge connects through Encounter Crucible's public API-ready hook and also performs a bounded startup retry. Compatible core patch releases such as Encounter Crucible 1.8.4 with Helper API 2.7.2 are accepted. Version checks use semantic comparison rather than exact strings. Helper-directory registration is attempted when the core exposes it, but it is optional because Forge has its own Combat Tracker and Module Settings launch surfaces.
+Forge connects through Runyth Encounter Crucible's public API-ready hook and also performs a bounded startup retry. Compatible core patch releases such as Runyth Encounter Crucible 1.8.4 with Helper API 2.7.2 are accepted. Version checks use semantic comparison rather than exact strings. Helper-directory registration is attempted when the core exposes it, but it is optional because Forge has its own Combat Tracker and Module Settings launch surfaces.
 
-Forge 1.9.6 centralizes integration through a compatibility adapter. A callable generation facade is authoritative even when an additive capability flag is absent or temporarily stale. The adapter prefers `api.generation`, accepts compatible API 2.x aliases, and provides a display-only slider-label fallback when the optional `sliderToTarget` helper is unavailable. Encounter generation itself always remains delegated to Encounter Crucible.
+Forge 1.9.6 centralizes integration through a compatibility adapter. A callable generation facade is authoritative even when an additive capability flag is absent or temporarily stale. The adapter prefers `api.generation`, accepts compatible API 2.x aliases, and provides a display-only slider-label fallback when the optional `sliderToTarget` helper is unavailable. Encounter generation itself always remains delegated to Runyth Encounter Crucible.
 
 ## Use
 
-1. Enable **Encounter Crucible** and **Encounter Crucible: Forge**.
+1. Enable **Runyth Encounter Crucible** and **Runyth Encounter Crucible: Forge**.
 2. Open Forge from the hammer button in the Combat Tracker sidebar, or through **Game Settings → Configure Settings → Module Settings → Open Encounter Forge**.
 3. Select an Actor folder with the searchable hierarchical folder tree and choose the party source.
 4. Adjust the difficulty slider and composition controls.
 5. Generate a suggestion.
-6. Place it on the current Scene, open it in Encounter Crucible, or save it.
+6. Place it on the current Scene, open it in Runyth Encounter Crucible, or save it.
 7. Reopen saved Journal encounters from the **Saved encounters** section at any later time.
 
 No Actor is modified. Generated encounters contain references and calculation snapshots only.
 
 ## Actor-folder selector
 
-Forge 1.9.6 reads the authoritative world Actor-folder collection directly from Foundry instead of relying on an optional Encounter Crucible folder-list helper. The source selector is a scalable tree rather than a flat dropdown. It preserves nested folder structure, provides a bounded scroll area, supports folder-name/full-path search, expand/collapse controls, and shows `direct / recursive` Actor counts for every folder.
+Forge 1.9.6 reads the authoritative world Actor-folder collection directly from Foundry instead of relying on an optional Runyth Encounter Crucible folder-list helper. The source selector is a scalable tree rather than a flat dropdown. It preserves nested folder structure, provides a bounded scroll area, supports folder-name/full-path search, expand/collapse controls, and shows `direct / recursive` Actor counts for every folder.
 
-Selecting a parent folder and enabling **Include Actor folders below the selected folder** still delegates the actual recursive Actor collection to Encounter Crucible. Folder discovery and encounter analysis therefore have separate responsibilities and cannot accidentally disable each other.
+Selecting a parent folder and enabling **Include Actor folders below the selected folder** still delegates the actual recursive Actor collection to Runyth Encounter Crucible. Folder discovery and encounter analysis therefore have separate responsibilities and cannot accidentally disable each other.
 
 See `docs/FOLDER_SELECTOR.md` for behavior, accessibility notes, and troubleshooting.
 
@@ -47,7 +47,7 @@ an impossible roster when the selected Actor folder lacks suitable creatures.
 
 ## Window position and size
 
-Forge remembers its last position and dimensions separately for each browser client. Reopening it restores that layout. To return to the default centred size, use **Game Settings → Configure Settings → Module Settings → Encounter Crucible: Forge → Reset Forge window layout**.
+Forge remembers its last position and dimensions separately for each browser client. Reopening it restores that layout. To return to the default centred size, use **Game Settings → Configure Settings → Module Settings → Runyth Encounter Crucible: Forge → Reset Forge window layout**.
 
 See `docs/WINDOW_LAYOUT.md` for storage and reset details.
 
@@ -68,9 +68,9 @@ See `docs/VOCABULARY_FILTERS.md` for exact semantics and campaign examples.
 
 ## Saving and organization
 
-**Save encounter** creates a normal Journal Entry under **Journal Directory → Encounter Crucible**. The page is readable, while its module flags retain the complete encounter definition.
+**Save encounter** creates a normal Journal Entry under **Journal Directory → Runyth Encounter Crucible**. The page is readable, while its module flags retain the complete encounter definition.
 
-The save panel accepts a custom name. Encounter Crucible applies Forge's configured name format, creates the configured theme subfolder, and appends `(2)`, `(3)`, and so on when a final name already exists.
+The save panel accepts a custom name. Runyth Encounter Crucible applies Forge's configured name format, creates the configured theme subfolder, and appends `(2)`, `(3)`, and so on when a final name already exists.
 
 The default format is:
 
@@ -78,7 +78,7 @@ The default format is:
 [P{partySize}-L{averageLevel}-{difficulty}] {name}
 ```
 
-Configure the final Journal name and theme derivation under **Configure Settings → Module Settings → Encounter Crucible: Forge**.
+Configure the final Journal name and theme derivation under **Configure Settings → Module Settings → Runyth Encounter Crucible: Forge**.
 
 ## Scene placement
 
@@ -86,14 +86,14 @@ Configure the final Journal name and theme derivation under **Configure Settings
 
 ## Core interaction
 
-Forge is a reference helper built on Encounter Crucible's public Helper API. It delegates Actor normalization, encounter generation, assessment, Journal persistence, and token placement to the core module instead of duplicating those responsibilities.
+Forge is a reference helper built on Runyth Encounter Crucible's public Helper API. It delegates Actor normalization, encounter generation, assessment, Journal persistence, and token placement to the core module instead of duplicating those responsibilities.
 
 See `docs/CORE_INTEGRATION.md` for the complete boundary and API rationale.
 
 
 ## Reusing saved encounters
 
-The top of Forge lists every Encounter Crucible Journal. Load one exactly as saved, or leave **Recalculate for the current party** enabled to preserve its enemies while replacing the old party snapshot. See `docs/SAVED_ENCOUNTERS.md`.
+The top of Forge lists every Runyth Encounter Crucible Journal. Load one exactly as saved, or leave **Recalculate for the current party** enabled to preserve its enemies while replacing the old party snapshot. See `docs/SAVED_ENCOUNTERS.md`.
 
 ## Band-aware difficulty and unrestricted Extreme generation
 

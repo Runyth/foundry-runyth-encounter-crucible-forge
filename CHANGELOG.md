@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.10.0
+
+### Changed
+
+- Adopted the Runyth brand across the whole published identity: the Foundry module id is now `runyth-encounter-crucible-forge`, the displayed title is `Runyth Encounter Crucible: Forge`, and the required core id in the manifest relationship is `runyth-encounter-crucible`.
+- Installation folders for existing worlds must be renamed to `runyth-encounter-crucible-forge/`.
+
+### Fixed
+
+- No functional change; this release publishes the Runyth rebrand only.
+
+## 1.9.6
 ## 1.9.6
 
 - Fixed the Enemy Actor folder source appearing empty when the compatible Encounter Crucible API did not expose `actors.listFolders()`.

@@ -1,6 +1,6 @@
 # Manual test plan
 
-1. Install Encounter Crucible 1.8.2 with Helper API 2.7.1 and Forge 1.9.6 in Foundry v13 with D&D5e 5.2+.
+1. Install Runyth Encounter Crucible 1.8.2 with Helper API 2.7.1 and Forge 1.9.6 in Foundry v13 with D&D5e 5.2+.
 2. Open Forge from the Combat Tracker and verify the button remains correctly sized.
 3. Verify window position and size restore and reset correctly.
 4. Select an Actor folder containing multiple low-CR Actors and at least one CR 10 Actor.
@@ -45,14 +45,14 @@ Confirm that the live explanation below the checkboxes changes immediately for
 all five states.
 ## Compatibility-handshake regression
 
-1. Enable Encounter Crucible 1.8.2 exposing Helper API 2.7.1 and Forge 1.9.6.
+1. Enable Runyth Encounter Crucible 1.8.2 exposing Helper API 2.7.1 and Forge 1.9.6.
 2. Reload the world and confirm Forge registers without an incompatibility notification.
 3. Confirm the Combat Tracker Forge button appears once.
 4. Open Forge and generate an encounter to verify `encounterGeneration` is usable.
 5. Reload several times to exercise startup ordering; confirm no duplicate helper registration or duplicate sidebar button appears.
 6. Test against a compatible core API that omits every helper-registration surface; confirm Forge opens and generates normally without an error notification.
-7. Temporarily disable Encounter Crucible and confirm Forge reports the specific inactive-core reason.
-8. Restore Encounter Crucible and confirm normal registration after reload.
+7. Temporarily disable Runyth Encounter Crucible and confirm Forge reports the specific inactive-core reason.
+8. Restore Runyth Encounter Crucible and confirm normal registration after reload.
 
 
 
@@ -85,7 +85,7 @@ all five states.
 
 1. Create at least three nested world Actor folders, for example `Enemies → Humans → Guards`, plus a separate root folder such as `Bandits`.
 2. Put Actors directly in `Humans`, `Guards`, and another descendant folder so direct and recursive counts differ.
-3. Open Forge and verify every Actor folder appears even when Encounter Crucible exposes `actors.collectFromFolder()` but no `actors.listFolders()`.
+3. Open Forge and verify every Actor folder appears even when Runyth Encounter Crucible exposes `actors.collectFromFolder()` but no `actors.listFolders()`.
 4. Verify the selector displays the hierarchy with indentation and full paths rather than one flat native select menu.
 5. Search for the deepest folder name. Confirm the matching folder and all of its ancestors remain visible.
 6. Search for a parent-folder name. Confirm its matching descendant paths remain visible.

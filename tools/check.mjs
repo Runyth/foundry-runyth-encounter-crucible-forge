@@ -34,13 +34,13 @@ function sortedKeys(object) {
   return Object.keys(object).sort();
 }
 
-assert(manifest.id === "encounter-crucible-forge", "Unexpected module id");
+assert(manifest.id === "runyth-encounter-crucible-forge", "Unexpected module id");
 assert(manifest.version === packageJson.version, "module.json and package.json versions differ");
 assert(packageLock.version === packageJson.version, "package-lock.json and package.json versions differ");
 assert(packageLock.packages?.[""]?.version === packageJson.version, "Root lockfile package version differs");
 assert(manifest.compatibility?.minimum === "13", "Foundry minimum must remain v13");
-assert(manifest.relationships?.requires?.[0]?.id === "encounter-crucible", "Encounter Crucible dependency is missing");
-assert(manifest.relationships?.requires?.[0]?.compatibility?.minimum === "1.8.1", "Unexpected Encounter Crucible minimum version");
+assert(manifest.relationships?.requires?.[0]?.id === "runyth-encounter-crucible", "Runyth Encounter Crucible dependency is missing");
+assert(manifest.relationships?.requires?.[0]?.compatibility?.minimum === "1.8.1", "Unexpected Runyth Encounter Crucible minimum version");
 assert(manifest.relationships?.systems?.[0]?.id === "dnd5e", "D&D5e system relationship is missing");
 
 for (const path of manifest.esmodules ?? []) assertFile(path, "ES module");

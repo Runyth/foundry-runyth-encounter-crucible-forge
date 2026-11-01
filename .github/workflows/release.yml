@@ -32,8 +32,8 @@ jobs:
         uses: softprops/action-gh-release@e598afbe1493e6b1bafb1f389cabb956eab91231
         with:
           files: |
-            dist/encounter-crucible-forge-v*-mod.zip
-            dist/encounter-crucible-forge-v*-src.zip
-            dist/encounter-crucible-forge-v*-doc.zip
-            dist/encounter-crucible-forge-v*-SHA256SUMS.txt
+            dist/runyth-encounter-crucible-forge-v*-mod.zip
+            dist/runyth-encounter-crucible-forge-v*-src.zip
+            dist/runyth-encounter-crucible-forge-v*-doc.zip
+            dist/runyth-encounter-crucible-forge-v*-SHA256SUMS.txt
             module.json

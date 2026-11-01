@@ -1,18 +1,18 @@
-# Encounter Crucible integration
+# Runyth Encounter Crucible integration
 
-Forge is a user-interface and source-selection helper. Encounter Crucible remains authoritative for Actor normalization, party discovery, encounter generation, assessment, persistence, dashboard hand-off, and scene placement.
+Forge is a user-interface and source-selection helper. Runyth Encounter Crucible remains authoritative for Actor normalization, party discovery, encounter generation, assessment, persistence, dashboard hand-off, and scene placement.
 
 ## Required API
 
-Forge 1.9.5 requires Encounter Crucible 1.8.1 or newer with Helper API 2.7.1 or a compatible later 2.x release.
+Forge 1.9.5 requires Runyth Encounter Crucible 1.8.1 or newer with Helper API 2.7.1 or a compatible later 2.x release.
 
 Registered helper capabilities include Actor-folder sourcing, difficulty targets, composition strategies, structured ancestry filters, vocabulary filters, Journal loading/saving, scene placement, and canonical CR-based XP handling.
 
 ## Constraint-first generation
 
-Forge sends the current form state to the callable Encounter Crucible generation facade without maintaining a second difficulty algorithm. The documented `api.generation.suggest` namespace is preferred. Forge 1.9.5 also accepts a compatible API 2.x `api.encounterGeneration.generate` alias when exposed by the detected core.
+Forge sends the current form state to the callable Runyth Encounter Crucible generation facade without maintaining a second difficulty algorithm. The documented `api.generation.suggest` namespace is preferred. Forge 1.9.5 also accepts a compatible API 2.x `api.encounterGeneration.generate` alias when exposed by the detected core.
 
-Encounter Crucible applies the request in this order:
+Runyth Encounter Crucible applies the request in this order:
 
 1. Normalize CR, XP, ancestry, creature type, and subtype qualifiers.
 2. Remove pseudo-values such as `Any Race` and `Any Class`.
@@ -20,7 +20,7 @@ Encounter Crucible applies the request in this order:
 4. Search the nearest achievable requested difficulty band.
 5. Respect the selected composition mode: quantity, strength, balanced, fixed-size, or neutral.
 6. Optimize raw 2024 XP, adjusted 2014 XP, action economy, preferences, diversity, boss shape, and minions inside that contract.
-7. Assess the final roster through the complete Encounter Crucible engine.
+7. Assess the final roster through the complete Runyth Encounter Crucible engine.
 
 The two scaling checkboxes are therefore not cosmetic tie-breakers. Their exact
 precedence is:
@@ -43,7 +43,7 @@ that fixed count.
 
 Forge obtains the effective mode from the detected core generation facade. If
 the optional resolver is not exposed, Forge uses the same public checkbox truth
-table for display only; the generation request still goes to Encounter Crucible.
+table for display only; the generation request still goes to Runyth Encounter Crucible.
 
 ## Ancestry and qualifiers
 
@@ -71,11 +71,11 @@ A strict Human selection does not silently treat the Shapechanger as a plain Hum
 The core assessment engine owns the displayed difficulty. Forge calls `api.storage.save` and `api.placement.placeEncounter`; it does not create a parallel storage format or duplicate token-placement logic.
 ## Startup handshake
 
-Forge does not assume that module script evaluation order is identical to API availability order. It listens for `encounter-crucible.apiReady` and performs a bounded retry during Foundry `ready`. Optional helper-directory registration is idempotent, so observing the same API through both paths cannot create duplicate helper descriptors. Forge does not require a helper registry to use the core generation API.
+Forge does not assume that module script evaluation order is identical to API availability order. It listens for `runyth-encounter-crucible.apiReady` and performs a bounded retry during Foundry `ready`. Optional helper-directory registration is idempotent, so observing the same API through both paths cannot create duplicate helper descriptors. Forge does not require a helper registry to use the core generation API.
 
 Compatibility is accepted when all of the following are true:
 
-- Encounter Crucible is active and version 1.8.1 or newer.
+- Runyth Encounter Crucible is active and version 1.8.1 or newer.
 - Helper API major version is 2 and its semantic version is 2.7.1 or newer.
 - A callable encounter-generation facade is present. A true
   `capabilities.encounterGeneration` declaration is accepted, but the callable
@@ -96,7 +96,7 @@ not replace core generation or assessment.
 
 The bounded startup wait retries an unavailable API or a temporarily missing
 generation facade. It does not block on helper-directory registration. The check
-accepts Encounter Crucible 1.8.4 with Helper API 2.7.2, later compatible core
+accepts Runyth Encounter Crucible 1.8.4 with Helper API 2.7.2, later compatible core
 patch releases, and later 2.x Helper API minors. Unsupported major API versions
 remain explicit failures.
 
@@ -111,7 +111,7 @@ Forge attempts helper discoverability through these compatible layouts:
 5. `api.registerHelper` or `api.registerHelperModule`
 
 When none is available, Forge emits a best-effort
-`encounter-crucible.registerHelper` hook and continues normally. Its Combat
+`runyth-encounter-crucible.registerHelper` hook and continues normally. Its Combat
 Tracker button and Module Settings menu remain authoritative launch surfaces.
 Missing helper registration cannot disable encounter generation, assessment,
 Journal storage, saved-encounter loading, scene placement, or dashboard hand-off.
@@ -136,4 +136,4 @@ Optional presentation helpers are isolated from application rendering:
   unusable.
 
 These fallbacks affect labels and optional diagnostics only. The selected
-encounter is still generated and assessed by Encounter Crucible.
+encounter is still generated and assessed by Runyth Encounter Crucible.

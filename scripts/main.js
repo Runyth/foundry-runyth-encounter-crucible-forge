@@ -52,16 +52,16 @@ function registerWithCore(api) {
 
   ui.combat?.render?.({ force: true });
   if (result.registered) {
-    console.info(`[${MODULE_ID}] Registered with Encounter Crucible API ${api.version} through ${result.source}.`);
+    console.info(`[${MODULE_ID}] Registered with Runyth Encounter Crucible API ${api.version} through ${result.source}.`);
   } else {
     // Helper-directory registration is optional. Forge remains reachable from
     // its own Combat Tracker button and Module Settings menu. Emit a best-effort
     // hook for cores that discover helpers through lifecycle hooks instead.
     Hooks.callAll(`${CORE_ID}.registerHelper`, descriptor);
     if (result.error) {
-      console.warn(`[${MODULE_ID}] Optional Encounter Crucible helper registration through ${result.source} failed; Forge integration remains active.`, result.error);
+      console.warn(`[${MODULE_ID}] Optional Runyth Encounter Crucible helper registration through ${result.source} failed; Forge integration remains active.`, result.error);
     } else {
-      console.info(`[${MODULE_ID}] Encounter Crucible API ${api.version} has no recognized helper registry; Forge integration remains active without directory registration.`);
+      console.info(`[${MODULE_ID}] Runyth Encounter Crucible API ${api.version} has no recognized helper registry; Forge integration remains active without directory registration.`);
     }
   }
   return true;
@@ -93,7 +93,7 @@ async function establishCoreIntegration({ notifyOnFailure = true } = {}) {
 
   const message = compatibilityFailureMessage(result);
   if (notifyOnFailure) ui.notifications.error(message);
-  console.error(`[${MODULE_ID}] Encounter Crucible compatibility check failed`, result);
+  console.error(`[${MODULE_ID}] Runyth Encounter Crucible compatibility check failed`, result);
   return false;
 }
 
@@ -117,7 +117,7 @@ function handleCoreApiReady(api) {
 function addCombatTrackerButton(app, html) {
   if (!game.user.isGM) return;
   const root = html instanceof HTMLElement ? html : html?.[0];
-  if (!root || root.querySelector("[data-encounter-crucible-forge]")) return;
+  if (!root || root.querySelector("[data-runyth-encounter-crucible-forge]")) return;
   const header = root.querySelector(".window-header, header, .combat-tracker-header, .directory-header");
   if (!header) return;
   const button = document.createElement("button");

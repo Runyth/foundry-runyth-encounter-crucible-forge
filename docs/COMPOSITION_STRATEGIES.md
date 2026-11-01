@@ -2,7 +2,7 @@
 
 Forge has two independent-looking checkboxes, but the pair resolves to one
 explicit composition mode. The live summary below the checkboxes shows the
-mode that Encounter Crucible will actually use.
+mode that Runyth Encounter Crucible will actually use.
 
 | Additional enemies | Stronger enemies | Effective mode | Meaning |
 |---|---|---|---|
@@ -28,7 +28,7 @@ size 8:
 | Dangerous | 6 | 4 | 2 |
 | Extreme | 8 | 6 | 3 |
 
-These are preferred counts, not fabricated difficulty. Encounter Crucible
+These are preferred counts, not fabricated difficulty. Runyth Encounter Crucible
 still selects the nearest achievable difficulty band first. If the Actor pool
 cannot form the requested band at the preferred count, the result may use a
 different count and Forge reports the actual count in diagnostics.

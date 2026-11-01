@@ -16,7 +16,7 @@ assert.match(template, /diagnostics\.targetRatioDisplay/);
 assert.doesNotMatch(template, /diagnostics\.safety\.maxTotalXp/);
 assert.match(main, /button\.className = "eccf-sidebar-button"/);
 assert.match(main, /waitForCompatibleCore/);
-assert.match(main, /encounter-crucible\.apiReady|CORE_ID}\.apiReady/);
+assert.match(main, /runyth-encounter-crucible\.apiReady|CORE_ID}\.apiReady/);
 assert.match(css, /inline-size: auto !important/);
 assert.match(css, /min-inline-size: max-content !important/);
 

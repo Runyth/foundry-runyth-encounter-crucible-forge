@@ -7,7 +7,7 @@ Forge remembers its last window position and size separately for each browser cl
 The layout is stored as the hidden client setting:
 
 ```text
-encounter-crucible-forge.windowGeometry
+runyth-encounter-crucible-forge.windowGeometry
 ```
 
 Only these resolved pixel values are retained:
@@ -34,7 +34,7 @@ Open:
 Game Settings
 → Configure Settings
 → Module Settings
-→ Encounter Crucible: Forge
+→ Runyth Encounter Crucible: Forge
 → Reset Forge window layout
 ```
 

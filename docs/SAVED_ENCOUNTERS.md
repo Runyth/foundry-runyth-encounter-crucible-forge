@@ -1,18 +1,18 @@
 # Reusing saved encounters
 
-Forge v1.6 can load Encounter Crucible Journal Entries back into the generator window.
+Forge v1.6 can load Runyth Encounter Crucible Journal Entries back into the generator window.
 
 ## Workflow
 
 1. Open Forge from the Combat Tracker.
 2. Open **Saved encounters** at the top of the window.
-3. Select an Encounter Crucible Journal Entry.
+3. Select an Runyth Encounter Crucible Journal Entry.
 4. Choose whether to enable **Recalculate for the current party**.
 5. Click **Load saved encounter into Forge**.
 
 The loaded enemy roster appears in the normal result panel. It can then be:
 
-- opened in Encounter Crucible;
+- opened in Runyth Encounter Crucible;
 - placed on the current Scene;
 - added to Combat;
 - renamed and saved again;
@@ -37,4 +37,4 @@ const saved = api.storage.list();
 const encounter = api.storage.get(journalIdOrEncounterId);
 ```
 
-Forge never parses Journal HTML. The readable page is for the GM; the authoritative definition comes from `flags.encounter-crucible.encounter` through the core API.
+Forge never parses Journal HTML. The readable page is for the GM; the authoritative definition comes from `flags.runyth-encounter-crucible.encounter` through the core API.

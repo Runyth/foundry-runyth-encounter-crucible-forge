@@ -126,8 +126,8 @@ function deriveTheme(encounter, options, folderId) {
 
 export class ForgeApp extends HandlebarsApplicationMixin(ApplicationV2) {
   static DEFAULT_OPTIONS = {
-    id: "encounter-crucible-forge",
-    classes: ["encounter-crucible-forge"],
+    id: "runyth-encounter-crucible-forge",
+    classes: ["runyth-encounter-crucible-forge"],
     tag: "form",
     window: { title: "ECCF.Title", icon: "fa-solid fa-hammer", resizable: true },
     position: { width: 760, height: 760 },
@@ -273,7 +273,7 @@ export class ForgeApp extends HandlebarsApplicationMixin(ApplicationV2) {
         id: saved.journalId ?? saved.id,
         name: saved.name,
         displayName: saved.displayName ?? saved.name,
-        folder: saved.storage?.folderPath?.slice(1).join(" → ") || saved.storageMetadata?.theme || "Encounter Crucible"
+        folder: saved.storage?.folderPath?.slice(1).join(" → ") || saved.storageMetadata?.theme || "Runyth Encounter Crucible"
       })),
       hasSavedEncounters: Boolean(api?.storage?.list?.()?.length),
       busy: this.busy,

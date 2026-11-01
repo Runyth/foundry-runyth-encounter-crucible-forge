@@ -54,7 +54,7 @@ export function compareVersions(left, right) {
 }
 
 /**
- * Inspect the currently exposed Encounter Crucible module/API without side effects.
+ * Inspect the currently exposed Runyth Encounter Crucible module/API without side effects.
  *
  * @param {object | undefined | null} coreModule Foundry Module instance or test double.
  * @param {object} requirements Compatibility requirements.
@@ -138,7 +138,7 @@ function delay(milliseconds) {
 }
 
 /**
- * Wait briefly for Encounter Crucible to expose its API. Hard incompatibilities
+ * Wait briefly for Runyth Encounter Crucible to expose its API. Hard incompatibilities
  * return immediately; only the transient API-unavailable state is retried.
  *
  * @param {object} options Wait options.

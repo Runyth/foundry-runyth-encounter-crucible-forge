@@ -68,12 +68,12 @@ function normalizeCompositionMode(value, fallback) {
 }
 
 /**
- * Resolve the Encounter Crucible generation facade across compatible API 2.x
+ * Resolve the Runyth Encounter Crucible generation facade across compatible API 2.x
  * layouts. The public `generation` namespace is preferred, while documented
  * aliases, callable facades, and structurally compatible service layouts remain
  * supported.
  *
- * @param {object | null | undefined} api Encounter Crucible API object.
+ * @param {object | null | undefined} api Runyth Encounter Crucible API object.
  * @returns {object} Resolved generation facade and evidence.
  */
 export function resolveGenerationFacade(api) {
@@ -120,7 +120,7 @@ export function resolveGenerationFacade(api) {
  * Read a capability declaration from object, array, Set, or has()-based APIs.
  * Undefined means that the API did not explicitly declare the capability.
  *
- * @param {object | null | undefined} api Encounter Crucible API object.
+ * @param {object | null | undefined} api Runyth Encounter Crucible API object.
  * @param {string} capability Capability name.
  * @returns {boolean | undefined}
  */
@@ -144,7 +144,7 @@ export function declaredCapability(api, capability) {
  * structure. Structural evidence prevents false negatives when a compatible
  * core omits or delays an additive capability flag.
  *
- * @param {object | null | undefined} api Encounter Crucible API object.
+ * @param {object | null | undefined} api Runyth Encounter Crucible API object.
  * @param {string} capability Capability name.
  * @returns {boolean}
  */
@@ -169,7 +169,7 @@ export function hasCoreCapability(api, capability) {
 /**
  * Canonical slider conversion used only when a compatible generation facade
  * does not expose a usable display helper. Encounter generation itself is still
- * delegated to Encounter Crucible.
+ * delegated to Runyth Encounter Crucible.
  *
  * @param {unknown} value Slider value.
  * @param {string[]} [bands] Difficulty bands supplied by the core when present.
@@ -202,7 +202,7 @@ function fallbackCompositionMode(options = {}) {
  * Optional display helpers are isolated: throwing or malformed implementations
  * fall back locally and cannot break ForgeApp._prepareContext.
  *
- * @param {object | null | undefined} api Encounter Crucible API object.
+ * @param {object | null | undefined} api Runyth Encounter Crucible API object.
  * @returns {object} Forge-facing API adapter.
  */
 export function createCoreApiAdapter(api) {
@@ -251,7 +251,7 @@ export function createCoreApiAdapter(api) {
       },
       async suggest(request) {
         const suggest = resolveGenerationFacade(api).suggest;
-        if (!suggest) throw new Error("Encounter Crucible encounter generation is unavailable.");
+        if (!suggest) throw new Error("Runyth Encounter Crucible encounter generation is unavailable.");
         return suggest(request);
       }
     }

@@ -19,7 +19,7 @@ function bindRegistrar(owner, names, source) {
  * 2.x layouts. Helper registration improves discoverability but is not needed
  * for Forge's generation, assessment, storage, placement, or own sidebar entry.
  *
- * @param {object | null | undefined} api Encounter Crucible API object.
+ * @param {object | null | undefined} api Runyth Encounter Crucible API object.
  * @returns {{available: boolean, source: string, register: Function | null}}
  */
 export function resolveHelperRegistrar(api) {

@@ -1,5 +1,5 @@
-.encounter-crucible-forge { --eccf-gap: .75rem; }
-.encounter-crucible-forge .window-content { padding: 0; }
+.runyth-encounter-crucible-forge { --eccf-gap: .75rem; }
+.runyth-encounter-crucible-forge .window-content { padding: 0; }
 .eccf-shell { padding: 1rem; display: grid; gap: var(--eccf-gap); overflow: auto; }
 .eccf-header, .eccf-result header, .eccf-result footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .eccf-header h1, .eccf-result h2 { margin: 0; }
@@ -72,14 +72,14 @@
 .eccf-reset-window-content p { margin: 0; }
 .eccf-reset-window-content footer { display: flex; justify-content: flex-end; gap: .5rem; }
 
-.encounter-crucible-forge .eccf-generation-note {
+.runyth-encounter-crucible-forge .eccf-generation-note {
   margin: 0.5rem 0;
   padding: 0.5rem 0.65rem;
   border-inline-start: 3px solid var(--color-border-light-primary, #777);
   opacity: 0.9;
 }
 
-.encounter-crucible-forge .eccf-strategy-summary {
+.runyth-encounter-crucible-forge .eccf-strategy-summary {
   display: flex;
   align-items: flex-start;
   gap: 0.55rem;
@@ -90,31 +90,31 @@
   background: color-mix(in srgb, var(--color-bg-option, #202020) 82%, transparent);
 }
 
-.encounter-crucible-forge .eccf-strategy-summary > i {
+.runyth-encounter-crucible-forge .eccf-strategy-summary > i {
   margin-top: 0.15rem;
 }
 
-.encounter-crucible-forge .eccf-strategy-summary span {
+.runyth-encounter-crucible-forge .eccf-strategy-summary span {
   display: grid;
   gap: 0.15rem;
 }
 
-.encounter-crucible-forge .eccf-strategy-summary small {
+.runyth-encounter-crucible-forge .eccf-strategy-summary small {
   line-height: 1.3;
 }
 
 /* Scalable Actor-folder selector. */
-.encounter-crucible-forge .eccf-folder-source {
+.runyth-encounter-crucible-forge .eccf-folder-source {
   min-width: 0;
 }
 
-.encounter-crucible-forge .eccf-folder-picker {
+.runyth-encounter-crucible-forge .eccf-folder-picker {
   display: grid;
   gap: .5rem;
   min-width: 0;
 }
 
-.encounter-crucible-forge .eccf-folder-selection {
+.runyth-encounter-crucible-forge .eccf-folder-selection {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -125,44 +125,44 @@
   background: rgb(0 0 0 / 6%);
 }
 
-.encounter-crucible-forge .eccf-folder-selection > span {
+.runyth-encounter-crucible-forge .eccf-folder-selection > span {
   display: grid;
   min-width: 0;
 }
 
-.encounter-crucible-forge .eccf-folder-selection strong {
+.runyth-encounter-crucible-forge .eccf-folder-selection strong {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.encounter-crucible-forge .eccf-folder-selection small,
-.encounter-crucible-forge .eccf-folder-help {
+.runyth-encounter-crucible-forge .eccf-folder-selection small,
+.runyth-encounter-crucible-forge .eccf-folder-help {
   opacity: .72;
 }
 
-.encounter-crucible-forge .eccf-folder-selection button,
-.encounter-crucible-forge .eccf-folder-tree-actions button,
-.encounter-crucible-forge .eccf-folder-toggle,
-.encounter-crucible-forge .eccf-folder-select {
+.runyth-encounter-crucible-forge .eccf-folder-selection button,
+.runyth-encounter-crucible-forge .eccf-folder-tree-actions button,
+.runyth-encounter-crucible-forge .eccf-folder-toggle,
+.runyth-encounter-crucible-forge .eccf-folder-select {
   width: auto;
   min-width: 0;
 }
 
-.encounter-crucible-forge .eccf-folder-controls {
+.runyth-encounter-crucible-forge .eccf-folder-controls {
   display: flex;
   align-items: center;
   gap: .5rem;
   min-width: 0;
 }
 
-.encounter-crucible-forge .eccf-folder-search {
+.runyth-encounter-crucible-forge .eccf-folder-search {
   position: relative;
   flex: 1 1 16rem;
   min-width: 8rem;
 }
 
-.encounter-crucible-forge .eccf-folder-search > i {
+.runyth-encounter-crucible-forge .eccf-folder-search > i {
   position: absolute;
   inset-inline-start: .6rem;
   top: 50%;
@@ -171,24 +171,24 @@
   opacity: .65;
 }
 
-.encounter-crucible-forge .eccf-folder-search input {
+.runyth-encounter-crucible-forge .eccf-folder-search input {
   width: 100%;
   padding-inline-start: 1.8rem;
 }
 
-.encounter-crucible-forge .eccf-folder-tree-actions {
+.runyth-encounter-crucible-forge .eccf-folder-tree-actions {
   display: flex;
   flex: 0 0 auto;
   gap: .3rem;
 }
 
-.encounter-crucible-forge .eccf-folder-tree-actions button {
+.runyth-encounter-crucible-forge .eccf-folder-tree-actions button {
   min-height: 2rem;
   padding-inline: .5rem;
   white-space: nowrap;
 }
 
-.encounter-crucible-forge .eccf-folder-tree {
+.runyth-encounter-crucible-forge .eccf-folder-tree {
   display: grid;
   align-content: start;
   max-height: clamp(12rem, 34vh, 24rem);
@@ -201,7 +201,7 @@
   background: rgb(0 0 0 / 4%);
 }
 
-.encounter-crucible-forge .eccf-folder-row {
+.runyth-encounter-crucible-forge .eccf-folder-row {
   display: grid;
   grid-template-columns: 1.7rem minmax(0, 1fr);
   align-items: stretch;
@@ -210,24 +210,24 @@
   border-bottom: 1px solid rgb(127 127 127 / 14%);
 }
 
-.encounter-crucible-forge .eccf-folder-row:last-child {
+.runyth-encounter-crucible-forge .eccf-folder-row:last-child {
   border-bottom: 0;
 }
 
-.encounter-crucible-forge .eccf-folder-row[hidden] {
+.runyth-encounter-crucible-forge .eccf-folder-row[hidden] {
   display: none !important;
 }
 
-.encounter-crucible-forge .eccf-folder-row.selected {
+.runyth-encounter-crucible-forge .eccf-folder-row.selected {
   background: color-mix(in srgb, var(--color-bg-option, #202020) 74%, var(--color-border-highlight) 26%);
 }
 
-.encounter-crucible-forge .eccf-folder-row.eccf-folder-search-match:not(.selected) {
+.runyth-encounter-crucible-forge .eccf-folder-row.eccf-folder-search-match:not(.selected) {
   background: rgb(127 127 127 / 10%);
 }
 
-.encounter-crucible-forge .eccf-folder-toggle,
-.encounter-crucible-forge .eccf-folder-toggle-spacer {
+.runyth-encounter-crucible-forge .eccf-folder-toggle,
+.runyth-encounter-crucible-forge .eccf-folder-toggle-spacer {
   align-self: center;
   justify-self: center;
   inline-size: 1.55rem;
@@ -236,7 +236,7 @@
   padding: 0;
 }
 
-.encounter-crucible-forge .eccf-folder-toggle {
+.runyth-encounter-crucible-forge .eccf-folder-toggle {
   display: inline-grid;
   place-items: center;
   border: 0;
@@ -244,12 +244,12 @@
   box-shadow: none;
 }
 
-.encounter-crucible-forge .eccf-folder-toggle:hover,
-.encounter-crucible-forge .eccf-folder-toggle:focus-visible {
+.runyth-encounter-crucible-forge .eccf-folder-toggle:hover,
+.runyth-encounter-crucible-forge .eccf-folder-toggle:focus-visible {
   background: rgb(127 127 127 / 14%);
 }
 
-.encounter-crucible-forge .eccf-folder-select {
+.runyth-encounter-crucible-forge .eccf-folder-select {
   display: grid;
   grid-template-columns: 1.35rem minmax(0, 1fr) auto;
   align-items: center;
@@ -264,30 +264,30 @@
   text-align: start;
 }
 
-.encounter-crucible-forge .eccf-folder-select:hover,
-.encounter-crucible-forge .eccf-folder-select:focus-visible {
+.runyth-encounter-crucible-forge .eccf-folder-select:hover,
+.runyth-encounter-crucible-forge .eccf-folder-select:focus-visible {
   background: rgb(127 127 127 / 12%);
 }
 
-.encounter-crucible-forge .eccf-folder-text {
+.runyth-encounter-crucible-forge .eccf-folder-text {
   display: grid;
   min-width: 0;
   line-height: 1.15;
 }
 
-.encounter-crucible-forge .eccf-folder-text strong,
-.encounter-crucible-forge .eccf-folder-text small {
+.runyth-encounter-crucible-forge .eccf-folder-text strong,
+.runyth-encounter-crucible-forge .eccf-folder-text small {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.encounter-crucible-forge .eccf-folder-text small {
+.runyth-encounter-crucible-forge .eccf-folder-text small {
   opacity: .62;
   font-size: .75em;
 }
 
-.encounter-crucible-forge .eccf-folder-count {
+.runyth-encounter-crucible-forge .eccf-folder-count {
   min-width: 3.2rem;
   padding: .12rem .35rem;
   border-radius: 999px;
@@ -299,13 +299,13 @@
 }
 
 @media (max-width: 620px) {
-  .encounter-crucible-forge .eccf-folder-controls,
-  .encounter-crucible-forge .eccf-folder-selection {
+  .runyth-encounter-crucible-forge .eccf-folder-controls,
+  .runyth-encounter-crucible-forge .eccf-folder-selection {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .encounter-crucible-forge .eccf-folder-tree-actions {
+  .runyth-encounter-crucible-forge .eccf-folder-tree-actions {
     flex-wrap: wrap;
   }
 }
