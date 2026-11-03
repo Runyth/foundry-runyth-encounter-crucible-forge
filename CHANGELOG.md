@@ -1,24 +1,17 @@
 # Changelog
 
-## 1.10.1 - 2026-11-01
-
-### Fixed
+## 1.10.1 — 2026-11-01
 
 - Attributed the source licence headers to the same holder the README Licence chapter names so every module surface carries the same copyright holder.
 
-## 1.10.0
-
-### Changed
+## 1.10.0 — 2026-11-01
 
 - Adopted the Runyth brand across the whole published identity: the Foundry module id is now `runyth-encounter-crucible-forge`, the displayed title is `Runyth Encounter Crucible: Forge`, and the required core id in the manifest relationship is `runyth-encounter-crucible`.
 - Installation folders for existing worlds must be renamed to `runyth-encounter-crucible-forge/`.
 
-### Fixed
-
 - No functional change; this release publishes the Runyth rebrand only.
 
-## 1.9.6
-## 1.9.6
+## 1.9.6 — 2026-10-31
 
 - Fixed the Enemy Actor folder source appearing empty when the compatible Encounter Crucible API did not expose `actors.listFolders()`.
 - Discover world Actor folders directly from Foundry's authoritative `game.actors.folders` collection, with a defensive `game.folders` fallback for compatible test/runtime wrappers.
@@ -115,7 +108,6 @@
 - Warn explicitly when a loaded or manually assembled encounter is an overwhelming mismatch.
 - Enlarged and corrected the Combat Tracker Forge button so its full label remains visible.
 - Added saved-encounter, boss-safety, and regression documentation and tests.
-
 
 ## 1.5.0
 
