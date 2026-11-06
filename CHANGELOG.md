@@ -1,5 +1,17 @@
 # Changelog
 
+
+## 1.10.2 — 2026-11-06
+
+- The installable archive now ships the runtime templates again: `templates/forge.hbs` and
+  `templates/reset-window.hbs` were collected from the repository but never entered the `-mod`
+  ZIP, so every attempt to render the forge window rejected in the live world with an uncaught
+  `SyntaxError`-free `Error: ENOENT … templates/forge.hbs` from Foundry's template transport,
+  repeated once per render request.
+- Packaging now re-verifies the written archive against every `${MODULE_ID}/templates/*` reference
+  found in the runtime scripts and aborts on an unclosed template graph; a template-closure test
+  guards the working tree side as well.
+
 ## 1.10.1 — 2026-11-01
 
 - Attributed the source licence headers to the same holder the README Licence chapter names so every module surface carries the same copyright holder.

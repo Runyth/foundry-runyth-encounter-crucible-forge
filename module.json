@@ -2,7 +2,7 @@
   "id": "runyth-encounter-crucible-forge",
   "title": "Runyth Encounter Crucible: Forge",
   "description": "Sidebar encounter generator with a scalable hierarchical Actor-folder picker, resilient Helper API 2.x facade detection, explicit composition strategies, reusable Journals, and persistent window geometry.",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "authors": [
     {
       "name": "Runyth",
@@ -56,5 +56,5 @@
   "changelog": "CHANGELOG.md",
   "url": "https://github.com/Runyth/foundry-runyth-encounter-crucible-forge",
   "manifest": "https://github.com/Runyth/foundry-runyth-encounter-crucible-forge/releases/latest/download/module.json",
-  "download": "https://github.com/Runyth/foundry-runyth-encounter-crucible-forge/releases/download/v1.10.1/runyth-encounter-crucible-forge-v1.10.1-mod.zip"
+  "download": "https://github.com/Runyth/foundry-runyth-encounter-crucible-forge/releases/download/v1.10.2/runyth-encounter-crucible-forge-v1.10.2-mod.zip"
 }
